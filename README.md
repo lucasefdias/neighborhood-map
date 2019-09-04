@@ -1,4 +1,4 @@
-# Project 5: Neighbourhood Map
+# Neighborhood Map
 
 This is the fifth project for [Udacity's](https://www.udacity.com/) [Full Stack Web Developer Nanodegree](https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd004)
 This project uses [ReactJS](https://reactjs.org/) to create a single-page application that renders a map for the Theatre District in New York City (United States) with several venue markers and a sidebar that filters the displayed markers.
