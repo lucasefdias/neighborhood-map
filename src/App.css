@@ -1,0 +1,241 @@
+/* ------------------------- */
+/* Error Boundary
+/* ------------------------- */
+#errorBoundary {
+    margin: 20vh 20vw;
+}
+details {
+    white-space: pre-wrap;
+}
+
+/* ------------------------- */
+/* Top navbar
+/* ------------------------- */
+.App-header {
+  background-color: #282c34;
+  min-height:10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  z-index: 2;
+  position: fixed;
+  width: 100%;
+}
+.Navbar-brand {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+}
+.Api-attribution {
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+/* ------------------------- */
+/* Sidebar
+/* ------------------------- */
+/* Menu icon */
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  top: 3.5vh;
+  left: 1.5rem;
+
+  background: #cdcdcd;
+  border-radius: 3px;
+
+  z-index: 5;
+
+  transform-origin: 4px 0px;
+
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background-color 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+/* Hidden input that toggles sidebar display */
+#menuToggle #Sidebar-toggle
+{
+  display: block;
+  width: 50px;
+  height: 10vh;
+  position: fixed;
+  top: -5px;
+  left: 1rem;
+  cursor: pointer;
+
+  /* Hidden and placed over the menu icon */
+  opacity: 0;
+  z-index: 6;
+
+  -webkit-touch-callout: none;
+}
+
+/* Menu icon animation (transition to cross icon) */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(0px, -1px);
+}
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/* Styling location list */
+#sidebarMenuContainer, #sidebarMenu {
+    position: fixed;
+    top: 0;
+    margin-top: 0;
+    width: 250px;
+    background-color: #282c34;
+    height: 100vh;
+}
+#sidebarMenuContainer {
+    z-index: 1;
+    padding-top: 10vh;
+    transform-origin: 0% 0%;
+    transform: translate(-200%, 0);
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+#sidebarMenu {
+    padding-top: 15vh;
+    z-index: 2;
+}
+#sidebarMenu ul {
+    list-style-type: none;
+}
+#searchBarDiv {
+    position: relative;
+    height: 7vh;
+    padding-left: 0.5rem;
+    z-index: 5;
+}
+#searchVenue {
+    height: 5vh;
+    width: 230px;
+    background-color: #fff;
+    color: #282928;
+    border-radius: 2%;
+    z-index: 6;
+    font-size: calc(5px + 1.5vmin);
+}
+.Sidebar-item {
+    margin-bottom: 1rem;
+    color: #fff;
+    text-decoration: none;
+    padding-left: 1rem;
+    font-size: calc(5px + 1.5vmin);
+}
+.Sidebar-item {
+    transition: color 0.3s ease;
+}
+.Sidebar-item:hover {
+    font-weight: 700;
+    cursor: pointer;
+}
+.Highlight {
+    background-color: #e9eaea;
+    color: #102537;
+}
+
+/* Slide animation for sidebar */
+#menuToggle input:checked ~ #sidebarMenuContainer {
+  transform: none;
+}
+
+/* ------------------------- */
+/* Map
+/* ------------------------- */
+.GoogleMaps-error{
+    margin: 20vh 20vw;
+    text-align: center;
+}
+#map {
+    height: 10vh;
+    z-index: 0;
+}
+#infoWindow {
+    text-align: center;
+    width: 15vw;
+    height: 15vh;
+}
+#venueName {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+#address {
+    margin: 0.6rem 0;
+    font-size: 0.8rem;
+    font-weight: normal;
+    font-style: italic;
+}
+#description {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+/* Responsive CSS */
+@media screen and (max-width: 1220px) {
+    #infoWindow {
+        width: 25vw;
+        height: 20vh;
+    }
+}
+@media screen and (max-width: 900px) {
+    #infoWindow {
+        width: 27vw;
+        height: 20vh;
+    }
+    #venueName {
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+    }
+    #address {
+        margin: 0.5rem 0;
+        font-size: 0.75rem;
+    }
+    #description {
+        margin: 0.4rem 0;
+        font-size: 0.8rem;
+    }
+}
+@media screen and (max-width: 700px) {
+    #infoWindow {
+        width: 30vw;
+        height: 25vh;
+    }
+    #venueName {
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+    }
+    #address {
+        margin: 0.4rem 0;
+    }
+    #description {
+        margin: 0.4rem 0;
+    }
+}
+@media screen and (max-width: 550px) {
+    #venueName {
+        margin-bottom: 0.3rem;
+    }
+    #address {
+        margin: 0.4rem 0;
+        font-size: 0.8rem;
+    }
+    #description {
+        margin: 0.4rem 0;
+    }
+}
