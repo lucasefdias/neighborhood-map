@@ -1,40 +1,33 @@
 import React from 'react'
 
-class SearchBar extends React.Component {
-
-    constructor(props) {
-        super(props);
-    }
+const SearchBar = props => {
 
     // -------------------------------
     // Text input methods
     // -------------------------------
-    onQueryChange = (e) => {
+    const onQueryChange = (e) => {
         // Update query string with new query
-        let queryString = this.sanitizeInput(e.target.value);
-        this.props.onChange(queryString);
+        const queryString = sanitizeInput(e.target.value);
+        props.onChange(queryString);
         // Reset any toggled SidebarItem
-        this.props.turnTextFilterOn();
+        props.turnTextFilterOn();
         // Reset selected venue
-        this.props.resetVenue();
+        props.resetVenue();
     }
     // Sanitize text search
-    sanitizeInput = (string) => {
+    const sanitizeInput = (string) => {
         return string.trim().toLowerCase();
     }
 
-    render() {
-        return (
-          <div id="searchBarDiv">
-            <input
-              id="searchVenue"
-              onChange={this.onQueryChange}
-              type="text"
-              placeholder="Search a venue"
-              value={this.props.queryString} />
-         </div>
-      );
-    }
+    return (
+      <div id="searchBarDiv">
+        <input
+          id="searchVenue"
+          onChange={onQueryChange}
+          type="text"
+          placeholder="Search a venue"
+          value={props.queryString} />
+     </div>
+  );
 }
-
 export default SearchBar
