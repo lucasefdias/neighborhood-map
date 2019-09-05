@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import SearchBar from './SearchBar.js';
 import '../App.css';
 
@@ -61,6 +62,17 @@ class Sidebar extends React.Component {
         );
     }
 }
+
+// Add PropTypes
+Sidebar.propTypes = {
+    queryString: PropTypes.string,
+    selectedVenues: PropTypes.array,
+    filterByClick: PropTypes.func,
+    resetFilter: PropTypes.func,
+    resetVenue: PropTypes.func,
+    updateQuery: PropTypes.func
+};
+
 
 class SidebarMenu extends React.Component {
 
@@ -146,6 +158,17 @@ class SidebarMenu extends React.Component {
     }
 }
 
+// Add PropTypes
+SidebarMenu.propTypes = {
+    queryString: PropTypes.string,
+    selectedVenues: PropTypes.array,
+    filterByClick: PropTypes.func,
+    resetFilter: PropTypes.func,
+    resetVenue: PropTypes.func,
+    updateQuery: PropTypes.func
+};
+
+
 class SidebarItem extends React.Component {
 
     constructor(props) {
@@ -210,5 +233,14 @@ class SidebarItem extends React.Component {
         );
     }
 }
+
+// Add PropTypes
+SidebarItem.propTypes = {
+    venue: PropTypes.object,
+    filterByClick: PropTypes.func,
+    isTextFilterOn: PropTypes.func,
+    resetTextFilter: PropTypes.func
+};
+
 
 export default Sidebar;
