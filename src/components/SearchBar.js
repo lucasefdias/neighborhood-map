@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const SearchBar = props => {
 
@@ -30,4 +31,14 @@ const SearchBar = props => {
      </div>
   );
 }
+
+
+// Add PropTypes
+SearchBar.propTypes = {
+    onChange: PropTypes.func,
+    queryString: PropTypes.string,
+    resetVenue: PropTypes.func,
+    turnTextFilterOn: PropTypes.func
+};
+
 export default SearchBar
